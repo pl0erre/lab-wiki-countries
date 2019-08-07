@@ -1,0 +1,8 @@
+.App-home h2 {
+  margin: 0;
+}
+
+.App-home {
+  flex: 2;
+  overflow: hidden;
+}

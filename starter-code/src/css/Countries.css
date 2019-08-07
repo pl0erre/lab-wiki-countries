@@ -1,0 +1,17 @@
+.Countries-container {
+  width: 25%;
+  border: 1px solid black;
+  height: 100vh;
+  overflow-y: scroll;
+  margin: 0;
+}
+
+.single-country {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.single-country p {
+  margin: 0 1rem 0 3rem;
+}
