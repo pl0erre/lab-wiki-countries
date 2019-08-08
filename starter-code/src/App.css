@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  background-image: url("https://previews.123rf.com/images/sergeyussr/sergeyussr1303/sergeyussr130300142/18331205-baltic-sea-old-map.jpg")
 }
 
 .App-logo {
