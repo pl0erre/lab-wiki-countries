@@ -10,27 +10,32 @@ import axios from 'axios';
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      countries: []
+      countries: [],
+      error: null
     }
   }
 
   componentDidMount() {
-    axios.get("http://countries.tech-savvy.tech/countries")
+    axios.get("http://localhost:3001/countries")
     .then(response => {
       this.setState({countries: response.data})
     })
+    .catch((error)=>{
+      this.setState({error: error.message})
+    })
   }
 
-
   render() {
+    debugger
     return (
       <div className="App">
-        <Countries />
-        <Route exact path="/" component={Home} />
-        <Route path="/details/:id" component={CountryDetails} />
+        <Countries countriesArr={this.state.countries}/>
+        <Route countriesArr={this.state.countries} exact path="/" component={Home} />
+        <Route countriesArr={this.state.countries} path="/details/:id" component={CountryDetails} />
+
       </div>
     );
   }

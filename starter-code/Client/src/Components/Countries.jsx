@@ -1,15 +1,15 @@
 import React from 'react';
 import '../css/Countries.css';
-import myCountries from '../countries.json';
+// import myCountries from '../countries.json';
 import {Link} from 'react-router-dom';
 
-export default function Countries() {
+export default function Countries(props) {
   return (
 
     <div className="Countries-container">
       <h3>Countries</h3>
 
-      {myCountries.map((country)=> {
+      {props.countriesArr.map((country)=> {
 
         return(
 

@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+const express   = require('express');
+const app       = express();
+const path      = require('path');
+const countries = require("./countries.json");
+const cors      = require('cors');
+const port      = 3001;
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+app.use(cors());
 
-export default App;
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/countries', (req, res, next) => {
+    res.json(countries);
+});
+
+app.listen(port, (err) => {
+  if (err) {
+    return console.log('ERROOORRR', err)
+  }
+
+  console.log(`server is listening on port ${port}`)
+})
